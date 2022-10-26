@@ -7,12 +7,12 @@ const Header = () => {
 			<section className="bg-sky-800 dark:text-gray-100 p-10">
 				<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
 					<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-						<h1 className="text-5xl text-white font-bold leading-none sm:text-6xl">
+						<h1 className="text-5xl font-serif text-white font-bold leading-none sm:text-6xl">
 							Education is the
 							most powerful
 							Weapon
 						</h1>
-						<p className="mt-6 mb-8 text-white text-lg sm:mb-12">
+						<p className="mt-6 font-serif mb-8 text-white text-lg sm:mb-12">
 							Dictum aliquam porta in condimentum ac integer
 							<br className="hidden md:inline lg:hidden" />
 							turpis pulvinar, est scelerisque ligula sem
@@ -23,14 +23,14 @@ const Header = () => {
 								href="#"
 								className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 bg-teal-400 dark:text-gray-900"
 							>
-								Suspendisse
+								Visit
 							</Link>
 							<Link
 								rel="noopener noreferrer"
-								href="#"
+								to="/register"
 								className="px-8 py-3 bg-purple-500 text-lg font-semibold border rounded dark:border-gray-100"
 							>
-								Malesuada
+								Register
 							</Link>
 						</div>
 					</div>
