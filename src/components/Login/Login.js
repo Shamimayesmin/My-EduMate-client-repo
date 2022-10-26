@@ -30,15 +30,15 @@ const Login = () => {
             form.reset()
             // error clean korar jnno
             setError('') 
-            // navigate(from,{replace:true})
+            navigate(from,{replace:true})
             // email verify (optional)
-            if(user.emailVerified){
-                navigate(from,{replace:true})
-            }
-            else{
-                toast.error('your email isnt verified')
+            // if(user.emailVerified){
+            //     navigate(from,{replace:true})
+            // }
+            // else{
+            //     toast.error('your email isnt verified')
                 
-            }
+            // }
             
         })
         .catch(error =>{

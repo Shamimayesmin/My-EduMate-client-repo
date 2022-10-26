@@ -126,8 +126,7 @@ const Navbar = () => {
 						<>
 							{user?.uid ? (
 								<>
-									<span>{user?.displayName}</span>
-									<button onClick={handleLogOut} variant="light">
+									<button className="hover:bg-slate-400 rounded-r-lg" onClick={handleLogOut} variant="light">
 										Log Out
 									</button>
 								</>
@@ -155,16 +154,17 @@ const Navbar = () => {
 							)}
 						</>
 
-						
+
 					{/* userprofile photo showing */}
 						<>
 						{
 							user?.photoURL?
 							<img
 							alt=""
-							className="w-12 h-12 mr-2 ring-1 rounded-full ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
+							className="w-12 h-12 mr-2 ring-1 rounded-full ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 tooltip"
+							data-tip={user?.displayName}
 							src={user?.photoURL}
-							/>
+							/> 
 							:
 							<FaUser className="mt-6"></FaUser>
 						}
