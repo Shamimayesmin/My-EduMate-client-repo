@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Navbar = () => {
+	const { user, logOut } = useContext(AuthContext);
+
+	const handleLogOut = () => {
+		logOut()
+			.then((result) => {})
+			.catch((error) => console.error(error));
+	};
+
 	return (
 		<div>
 			{/* <div className="navbar sm:w-full bg-red-100">
@@ -94,7 +104,7 @@ const Navbar = () => {
 								Blog
 							</Link>
 						</li>
-						<li className="flex">
+						{/* <li className="flex">
 							<Link
 								rel="noopener noreferrer"
 								to="/register"
@@ -111,7 +121,56 @@ const Navbar = () => {
 							>
 								Login
 							</Link>
-						</li>
+						</li> */}
+
+						<>
+							{user?.uid ? (
+								<>
+									<span>{user?.displayName}</span>
+									<button onClick={handleLogOut} variant="light">
+										Log Out
+									</button>
+								</>
+							) : (
+								<>
+									<li className="flex">
+										<Link
+											rel="noopener noreferrer"
+											to="/register"
+											className="flex items-center hover:bg-teal-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
+										>
+											Register
+										</Link>
+									</li>
+									<li className="flex">
+										<Link
+											rel="noopener noreferrer"
+											to="/login"
+											className="flex items-center hover:bg-teal-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
+										>
+											Login
+										</Link>
+									</li>
+								</>
+							)}
+						</>
+
+						
+					{/* userprofile photo showing */}
+						<>
+						{
+							user?.photoURL?
+							<img
+							alt=""
+							className="w-12 h-12 mr-2 ring-1 rounded-full ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
+							src={user?.photoURL}
+							/>
+							:
+							<FaUser className="mt-6"></FaUser>
+						}
+						
+						</>
+						
 					</ul>
 
 					<label className="swap swap-rotate">
