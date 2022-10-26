@@ -1,23 +1,79 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import  { toast } from 'react-hot-toast';
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Register = () => {
     const [error, setError] = useState("");
-    const { createUser ,updateUserProfile,verifyEmail} = useContext(AuthContext);
+    const { createUser ,updateUserProfile,verifyEmail,loginWithGoogle} = useContext(AuthContext);
 
 
+	// const {providerLogin} = useContext(AuthContext)
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+
+		const form = event.target;
+		const name = form.name.value;
+		const photoURL = form.photoURL.value;
+		const email = form.email.value;
+		const password = form.password.value;
+		console.log(name, photoURL, email, password);
+
+		createUser(email, password)
+			.then((result) => {
+				const user = result.user;
+				console.log(user);
+				form.reset();
+				setError("");
+                handleUpdteUserProfile(name,photoURL)
+                handleVerifyEmail()
+                toast.success('please verify your email address before login')
+			})
+			.catch((error) => {
+				console.error(error);
+				setError(error.message);
+			});
+	};
+
+	const handleUpdteUserProfile = (name, photoURL) =>{
+        const profile = {
+            displayName : name,
+            photoURL : photoURL
+        }
+        updateUserProfile(profile)
+        .then(() =>{})
+        .catch(error => console.error(error))
+    }
 
 
+	const handleVerifyEmail = () =>{
+        verifyEmail()
+        .then(() =>{})
+        .catch(error =>console.error(error))
+    }
 
 
+	
 
+	const googleProvider = new GoogleAuthProvider()
+
+	const handleGoogleSignIn = () =>{
+		loginWithGoogle(googleProvider)
+		.then(result => {
+			const user = result.user;
+			console.log(user)
+		})
+		.catch(error =>console.error(error))
+
+	}
 
 	return (
 		<div>
-			<div className="w-full text-white bg-cyan-800 mt-10 mx-auto max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+			<div className="w-full text-white bg-cyan-800 mt-10 mx-auto max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mb-40">
 				<h1 className="text-2xl  font-bold text-center">Register</h1>
-				<form
+				<form onSubmit={handleSubmit}
 					novalidate=""
 					action=""
 					className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -28,10 +84,10 @@ const Register = () => {
 						</label>
 						<input
 							type="text"
-							name="username"
+							name="name"
 							id="username"
 							placeholder="Username"
-							className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+							className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400 text-black"
 						/>
 					</div>
 					<div className="space-y-1 text-sm">
@@ -43,7 +99,7 @@ const Register = () => {
 							name="photoURL"
 							id="photoURL"
 							placeholder="PhotoURL"
-							className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+							className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400 text-black"
 						/>
 					</div>
 					<div className="space-y-1 text-sm">
@@ -55,7 +111,8 @@ const Register = () => {
 							name="email"
 							id="email"
 							placeholder="Eamil"
-							className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+							required
+							className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400 text-black"
 						/>
 					</div>
 					<div className="space-y-1 text-sm">
@@ -67,7 +124,8 @@ const Register = () => {
 							name="password"
 							id="password"
 							placeholder="Password"
-							className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+							required
+							className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400 text-black"
 						/>
 						<div className="flex justify-end text-xs dark:text-gray-400">
 							<a rel="noopener noreferrer" href="#">
@@ -75,11 +133,13 @@ const Register = () => {
 							</a>
 						</div>
 					</div>
-					<button className="block bg-teal-400 hover:bg-fuchsia-300 rounded-md w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400 text-2xl">
+					<button className="block bg-teal-400 hover:bg-fuchsia-300 rounded-md w-full p-3 text-center  dark:text-gray-900 dark:bg-violet-400 text-2xl">
 						Sign Up
 					</button>
 				</form>
+				<p className="text-red-500">{error}</p>
 				<div className="flex items-center pt-4 space-x-1">
+					
 					<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
 					<p className="px-3 text-sm dark:text-gray-400">
 						Login with social accounts
@@ -87,7 +147,7 @@ const Register = () => {
 					<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
 				</div>
 				<div className="flex justify-center space-x-4">
-					<button aria-label="Log in with Google" className="p-3 rounded-sm hover:bg-purple-400">
+					<button onClick={handleGoogleSignIn} aria-label="Log in with Google" className="p-3 rounded-sm hover:bg-purple-400">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 32 32"
