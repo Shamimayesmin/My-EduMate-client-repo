@@ -23,7 +23,7 @@ const CourseDetails = () => {
 						<div className="badge badge-outline"> Rating:{rating}<FaStar className="text-warning me-2"/></div>
 					</div>
 					<div className="card-actions justify-center">
-						<Link to={`/category/${course_id}`}><button className="btn btn-primary">Get premium</button></Link>
+						<Link to='/checkout'><button className="btn btn-primary">Get premium</button></Link>
 					</div>
 
 				</div>

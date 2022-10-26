@@ -7,7 +7,7 @@ const Courses = () => {
     const courseCategory = useLoaderData()
     console.log(courseCategory)
     return (
-        <div className='container flex sm:flex-wrap lg:flex-nowrap '>
+        <div className='flex sm:flex-wrap lg:flex-nowrap '>
             <div class=" lg:w-1/3 sm:w-full bg-slate-400">
                 <Sidebar></Sidebar>
             </div>
