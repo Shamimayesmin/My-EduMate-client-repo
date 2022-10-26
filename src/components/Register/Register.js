@@ -6,6 +6,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 
 const Register = () => {
     const [error, setError] = useState("");
+	
     const { createUser ,updateUserProfile,verifyEmail,loginWithGoogle} = useContext(AuthContext);
 
 

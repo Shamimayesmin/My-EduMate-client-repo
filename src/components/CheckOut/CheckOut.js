@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CheckOut = () => {
 	return (
 		<div>
-			<div className="flex flex-col justify-center mx-auto mt-10 rounded-lg bg-slate-200 max-auto max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
+			<div className="flex flex-col justify-center mx-auto mt-10 rounded-lg bg-orange-100 max-auto max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
 				<h2 className="text-xl font-semibold">Checkout Your Course</h2>
 				<ul className="flex flex-col divide-y divide-gray-700">
 					<li className="flex flex-col py-6 sm:flex-row sm:justify-between">
@@ -189,14 +189,14 @@ const CheckOut = () => {
 				<div className="flex justify-end space-x-4">
 					<Link to='/course'><button
 						type="button"
-						className="px-6 py-2 border bg-cyan-400 rounded-md dark:border-violet-400"
+						className="px-6 py-2 border bg-cyan-400 hover:bg-blue-500 rounded-md dark:border-violet-400"
 					>
 						Back
 						 <span className="sr-only mr-2 sm:not-sr-only">to course</span>
 					</button></Link>
 					<button
 						type="button"
-						className="px-6 py-2 bg-orange-200 border rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400"
+						className="px-6 py-2 bg-slate-600 hover:bg-orange-500 border rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400"
 					>
 						<span className="sr-only sm:not-sr-only">Continue to</span>Checkout
 					</button>
