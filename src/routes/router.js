@@ -44,19 +44,7 @@ export const routes = createBrowserRouter([
                 path : '/login',
                 element : <Login></Login>
             },
-             {
-                path: '/checkout',
-                element : <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader : () =>fetch('https://assignment-10-server-smoky.vercel.app/course')
-                 
-                
-             },
-             {
-                path: '/checkout/:id',
-                 element : <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                 loader : ({params}) => fetch(`https://assignment-10-server-smoky.vercel.app/course/${params.id}`)
-                
-             },
+                          
             {
                 path: '/course',
                 element : <Courses></Courses>,
@@ -83,6 +71,13 @@ export const routes = createBrowserRouter([
                 element :<CourseDetails></CourseDetails> ,
                 loader : ({params}) =>fetch(`https://assignment-10-server-smoky.vercel.app/course/${params.id}`)
             },
+
+            {
+                path: '/checkout/:id',
+                 element : <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+                 loader : ({params}) => fetch(`https://assignment-10-server-smoky.vercel.app/course/${params.id}`)
+                
+             },
             
         ]
     }

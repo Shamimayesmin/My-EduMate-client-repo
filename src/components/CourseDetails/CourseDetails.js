@@ -7,10 +7,10 @@ const ref = React.createRef();
 
 
 const CourseDetails = () => {
-	// const React = require("react");
+	
 	const details = useLoaderData();
-	const { img, description, title, course_id, duration, fee, rating } = details;
-	console.log(details);
+	const { img, description, title, duration, fee, rating,_id } = details;
+	// console.log(details);
 
 	return (
 		<div>
@@ -62,7 +62,7 @@ const CourseDetails = () => {
 						</div>
 					</div>
 					<div className="card-actions justify-center">
-						<Link to="/checkout">
+						<Link to={`/checkout/${_id}`}>
 							<button className="btn btn-primary">Get premium</button>
 						</Link>
 					</div>
@@ -72,4 +72,5 @@ const CourseDetails = () => {
 	);
 };
 
+//to={`/courses/${_id}`
 export default CourseDetails;

@@ -9,9 +9,9 @@ const AllCourse = ({item}) => {
 	
 	return (
 		<div>
-			<div className="card w-96 h-full bg-base-100 shadow-xl">
+			<div className="card h-full bg-base-100 shadow-xl">
 				<figure>
-					<img className="w-96 h-64" src={img} alt="Shoes" />
+					<img className="w-96 sm:w-full h-64" src={img} alt="Shoes" />
 				</figure>
 				<div className="card-body">
 					<h2 className="card-title ">
