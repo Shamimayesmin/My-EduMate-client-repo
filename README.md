@@ -18,4 +18,4 @@
  - Blog section have latest blog about our current and previous courses information.
  - In this site also have FAQ section , most relevent and common questions with their answer.
  - we provide most popular curses for those who wants to make them more skillful and knowledgeable.
-- It disigned for 
+

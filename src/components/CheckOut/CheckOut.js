@@ -2,12 +2,11 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const CheckOut = () => {
-	const showCheck = useLoaderData()
-	const { img, title, fee} = showCheck
-	console.log(showCheck)
+	const showCheck = useLoaderData();
+	const { img, title, fee } = showCheck;
+	console.log(showCheck);
 	return (
-		<div>
-			
+		<div className="">
 			<div className="flex flex-col justify-center mx-auto mt-10 rounded-lg bg-orange-100 max-auto max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
 				<h2 className="text-xl font-semibold">Checkout Your Course</h2>
 				<ul className="flex flex-col divide-y divide-gray-700">
@@ -22,9 +21,8 @@ const CheckOut = () => {
 								<div className="flex justify-between w-full pb-2 space-x-2">
 									<div className="space-y-1">
 										<h3 className="text-lg font-semibold leading-snug sm:pr-8">
-                                        {title}
+											{title}
 										</h3>
-										
 									</div>
 									<div className="text-right">
 										<p className="text-lg font-semibold">75.50 $</p>
@@ -68,33 +66,128 @@ const CheckOut = () => {
 							</div>
 						</div>
 					</li>
-					
 				</ul>
 				<div className="space-y-1 text-right">
 					<p>
 						Total amount:
 						<span className="font-semibold">265.44 $</span>
 					</p>
-					
 				</div>
 				<div className="flex justify-end space-x-4">
-					<Link to='/course'><button
-						type="button"
-						className="px-6 py-2 border bg-cyan-400 hover:bg-blue-500 rounded-md dark:border-violet-400"
-					>
-						Back
-						 <span className="sr-only mr-2 sm:not-sr-only">to course</span>
-					</button></Link>
+					<Link to="/course">
+						<button
+							type="button"
+							className="px-6 py-2 border bg-cyan-400 hover:bg-blue-500 rounded-md dark:border-violet-400"
+						>
+							Back
+							<span className="sr-only mr-2 sm:not-sr-only">to course</span>
+						</button>
+					</Link>
 					<button
 						type="button"
-						className="px-6 py-2 bg-slate-600 hover:bg-orange-500 border rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400"
+						className="px-6 py-2 bg-red-400 hover:bg-orange-500 border rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400"
 					>
 						<span className="sr-only sm:not-sr-only">Continue to</span>Checkout
 					</button>
 				</div>
 			</div>
 
-			
+			<section className="p-6 mt-10 bg-slate-400 dark:bg-gray-800 dark:text-gray-50">
+				<form
+					novalidate=""
+					action=""
+					className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid"
+				>
+					<fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
+						<div className="space-y-2 col-span-full lg:col-span-1">
+							<p className="font-medium text-2xl">Confirm Your Order</p>
+							<p className="">
+								Fill up checkout form to comfirm your oder and submit the form
+							</p>
+						</div>
+						<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+							<div className="col-span-full sm:col-span-3">
+								<label for="firstname" className="text-sm">
+									First name
+								</label>
+								<input
+									id="firstname"
+									type="text"
+									placeholder="First name"
+									className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-2"
+								/>
+							</div>
+							<div className="col-span-full sm:col-span-3">
+								<label for="lastname" className="text-sm">
+									Last name
+								</label>
+								<input
+									id="lastname"
+									type="text"
+									placeholder="Last name"
+									className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-2"
+								/>
+							</div>
+							<div className="col-span-full sm:col-span-3">
+								<label for="email" className="text-sm">
+									Email
+								</label>
+								<input
+									id="email"
+									type="email"
+									placeholder="Email"
+									className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-2"
+								/>
+							</div>
+							<div className="col-span-full">
+								<label for="address" className="text-sm">
+									Address
+								</label>
+								<input
+									id="address"
+									type="text"
+									placeholder=""
+									className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-2"
+								/>
+							</div>
+							<div className="col-span-full sm:col-span-2">
+								<label for="city" className="text-sm">
+									City
+								</label>
+								<input
+									id="city"
+									type="text"
+									placeholder=""
+									className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-3"
+								/>
+							</div>
+							<div className="col-span-full sm:col-span-2">
+								<label for="state" className="text-sm">
+									State / Province
+								</label>
+								<input
+									id="state"
+									type="text"
+									placeholder=""
+									className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-3"
+								/>
+							</div>
+							<div className="col-span-full sm:col-span-2">
+								<label for="zip" className="text-sm">
+									ZIP / Postal
+								</label>
+								<input
+									id="zip"
+									type="text"
+									placeholder=""
+									className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-3"
+								/>
+							</div>
+						</div>
+					</fieldset>
+					
+				</form>
+			</section>
 		</div>
 	);
 };

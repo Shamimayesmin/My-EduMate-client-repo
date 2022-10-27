@@ -8,7 +8,7 @@ const Footer = () => {
 					<div className="lg:w-1/3">
 						<a
 							rel="noopener noreferrer"
-							href="#"
+							href="/"
 							className="flex justify-center space-x-3 lg:justify-start"
 						>
 							<div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-400">
@@ -33,23 +33,23 @@ const Footer = () => {
 							</h3>
 							<ul className="space-y-1">
 								<li>
-									<a rel="noopener noreferrer" href="#">
-										Features
+									<a rel="noopener noreferrer" href="/">
+										Home
 									</a>
 								</li>
 								<li>
-									<a rel="noopener noreferrer" href="#">
-										Integrations
+									<a rel="noopener noreferrer" href="/">
+										Courses
 									</a>
 								</li>
 								<li>
-									<a rel="noopener noreferrer" href="#">
-										Pricing
-									</a>
-								</li>
-								<li>
-									<a rel="noopener noreferrer" href="#">
+									<a rel="noopener noreferrer" href="/">
 										FAQ
+									</a>
+								</li>
+								<li>
+									<a rel="noopener noreferrer" href="/">
+										Blog
 									</a>
 								</li>
 							</ul>
@@ -60,12 +60,12 @@ const Footer = () => {
 							</h3>
 							<ul className="space-y-1">
 								<li>
-									<a rel="noopener noreferrer" href="#">
+									<a rel="noopener noreferrer" href="/">
 										Privacy
 									</a>
 								</li>
 								<li>
-									<a rel="noopener noreferrer" href="#">
+									<a rel="noopener noreferrer" href="/">
 										Terms of Service
 									</a>
 								</li>
@@ -75,17 +75,17 @@ const Footer = () => {
 							<h3 className="uppercase dark:text-gray-50">Developers</h3>
 							<ul className="space-y-1">
 								<li>
-									<a rel="noopener noreferrer" href="#">
+									<a rel="noopener noreferrer" href="/">
 										Public API
 									</a>
 								</li>
 								<li>
-									<a rel="noopener noreferrer" href="#">
+									<a rel="noopener noreferrer" href="/">
 										Documentation
 									</a>
 								</li>
 								<li>
-									<a rel="noopener noreferrer" href="#">
+									<a rel="noopener noreferrer" href="/">
 										Guides
 									</a>
 								</li>
@@ -96,7 +96,7 @@ const Footer = () => {
 							<div className="flex justify-start space-x-3">
 								<a
 									rel="noopener noreferrer"
-									href="#"
+									href="/"
 									title="Facebook"
 									className="flex items-center p-1"
 								>
@@ -111,7 +111,7 @@ const Footer = () => {
 								</a>
 								<a
 									rel="noopener noreferrer"
-									href="#"
+									href="/"
 									title="Twitter"
 									className="flex items-center p-1"
 								>
@@ -125,7 +125,7 @@ const Footer = () => {
 								</a>
 								<a
 									rel="noopener noreferrer"
-									href="#"
+									href="/"
 									title="Instagram"
 									className="flex items-center p-1"
 								>
