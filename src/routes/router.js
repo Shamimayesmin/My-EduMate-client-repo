@@ -46,6 +46,13 @@ export const routes = createBrowserRouter([
             },
              {
                 path: '/checkout',
+                element : <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+                loader : () =>fetch('https://assignment-10-server-smoky.vercel.app/course')
+                 
+                
+             },
+             {
+                path: '/checkout/:id',
                  element : <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
                  loader : ({params}) => fetch(`https://assignment-10-server-smoky.vercel.app/course/${params.id}`)
                 

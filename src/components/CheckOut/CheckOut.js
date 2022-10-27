@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const CheckOut = () => {
+	const showCheck = useLoaderData()
+	const { img, description, title, course_id, duration, fee, rating } = showCheck
+	console.log(showCheck)
 	return (
 		<div>
 			<div className="flex flex-col justify-center mx-auto mt-10 rounded-lg bg-orange-100 max-auto max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
@@ -11,14 +14,14 @@ const CheckOut = () => {
 						<div className="flex w-full space-x-2 sm:space-x-4">
 							<img
 								className="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"
-								src="https://i.ibb.co/G0ppF00/course1.jpg"
+								src={img}
 								alt="Computer Science  & Engineering"
 							/>
 							<div className="flex flex-col justify-between w-full pb-4">
 								<div className="flex justify-between w-full pb-2 space-x-2">
 									<div className="space-y-1">
 										<h3 className="text-lg font-semibold leading-snug sm:pr-8">
-                                        Computer Science  & Engineering
+                                        {title}
 										</h3>
 										
 									</div>
@@ -64,7 +67,7 @@ const CheckOut = () => {
 							</div>
 						</div>
 					</li>
-					<li className="flex flex-col py-6 sm:flex-row sm:justify-between">
+					{/* <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
 						<div className="flex w-full space-x-2 sm:space-x-4">
 							<img
 								className="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"
@@ -177,7 +180,7 @@ const CheckOut = () => {
 								</div>
 							</div>
 						</div>
-					</li>
+					</li> */}
 				</ul>
 				<div className="space-y-1 text-right">
 					<p>
