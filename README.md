@@ -1,7 +1,7 @@
 ### website name :
 ## EduMate
 
-- live link : 
+- live link : https://assignment-10-4ecf8.web.app
 
 ## Resources 
 - React create app
