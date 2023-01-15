@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Navbar = () => {
-	// const [hover, setHover] = useState(false);
+	const [theme, setTheme] = useState("light-theme");
 	const { user, logOut } = useContext(AuthContext);
 
 	const handleLogOut = () => {
@@ -12,6 +12,21 @@ const Navbar = () => {
 		.then((result) => {})
 		.catch((error) => console.error(error));
 	};
+
+	// toggle theme
+	const toggleTheme = () =>{
+		// console.log('click')
+		if(theme === "dark-theme"){
+			setTheme('light-theme')
+		}
+		else{
+			setTheme("dark-theme")
+		}
+	}
+
+	useEffect( () =>{
+		document.body.className = theme;
+	},[theme])
 
 	return (
 		<div>
@@ -37,7 +52,7 @@ const Navbar = () => {
 							className="w-12 h-12 mr-2 ring-1 rounded-full ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
 							src="https://i.ibb.co/jksDx50/logo1.jpg"
 						/>
-						EduMate
+						<h2 className="text-fuchsia-700">EduMate</h2>
 					</Link>
 					<ul className="items-stretch hidden space-x-3 md:flex">
 						<li className="flex">
@@ -129,7 +144,7 @@ const Navbar = () => {
 					
 						<label className="swap swap-rotate">
 						{/* <!-- this hidden checkbox controls the state --> */}
-						<input type="checkbox" />
+						<input onClick={() =>toggleTheme()} type="checkbox" />
 
 						<svg
 							className="swap-on fill-current w-10 h-10"

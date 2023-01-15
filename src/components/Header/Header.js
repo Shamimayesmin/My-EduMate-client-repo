@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import About from "../Others/About";
+import Others from "../Others/Others";
+import Testmonial from "../Others/Testmonial";
 
 const Header = () => {
 	return (
@@ -21,14 +24,14 @@ const Header = () => {
 							<Link
 								rel="noopener noreferrer"
 								href="#"
-								className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 bg-teal-400 dark:text-gray-900"
+								className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 bg-fuchsia-700 dark:text-gray-900"
 							>
 								Visit
 							</Link>
 							<Link
 								rel="noopener noreferrer"
 								to="/register"
-								className="px-8 py-3 bg-purple-500 text-lg font-semibold border rounded dark:border-gray-100"
+								className="px-8 py-3 bg-pink-400 text-lg font-semibold border rounded dark:border-gray-100"
 							>
 								Register
 							</Link>
@@ -38,13 +41,24 @@ const Header = () => {
 						<img
 							src="https://i.ibb.co/7Sbrdpz/header3.jpg"
 							alt=""
-							className="object-contain w-full rounded-md h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
+							className="object-contain rounded-md xl:h-112 2xl:h-128 sm:max-w-m lg:max-w-xl"
 						/>
 					</div>
 				</div>
 			</section>
 
-			<section className="py-6 bg-slate-200 dark:bg-gray-800 dark:text-gray-50">
+
+{/* card sectioin */}
+		<Others></Others>
+			{/* section2 */}
+
+			<About></About>
+			
+			{/* section3 */}
+
+		<Testmonial></Testmonial>
+
+			<section className="py-6 rounded-md bg-slate-200 dark:bg-gray-800 dark:text-gray-50">
 				<div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
 					<div className="py-6 md:py-0 md:px-6">
 						<h1 className="text-4xl font-bold">Get in touch</h1>
@@ -119,7 +133,7 @@ const Header = () => {
 						</label>
 						<button
 							type="button"
-							className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-400 dark:text-gray-900 focus:ring-violet-400 hover:ring-violet-400 bg-sky-500 hover:bg-emerald-600 text-white"
+							className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-400 dark:text-gray-900 focus:ring-violet-400 hover:ring-violet-400 bg-fuchsia-600 hover:bg-pink-400 text-white"
 						>
 							Submit
 						</button>
