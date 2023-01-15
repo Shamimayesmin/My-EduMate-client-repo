@@ -7,7 +7,7 @@ import Testmonial from "../Others/Testmonial";
 const Header = () => {
 	return (
 		<div>
-			<section className="bg-sky-800 dark:text-gray-100 p-10">
+			<section className="bg-sky-800 dark:text-gray-100 p-10 rounded-lg">
 				<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
 					<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
 						<h1 className="text-5xl font-serif text-white font-bold leading-none sm:text-6xl">
@@ -58,7 +58,7 @@ const Header = () => {
 
 		<Testmonial></Testmonial>
 
-			<section className="py-6 rounded-md bg-slate-200 dark:bg-gray-800 dark:text-gray-50">
+			<section className="py-6 rounded-md light:bg-slate-200 dark:bg-gray-300 dark:text-gray-50 shadow-2xl">
 				<div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
 					<div className="py-6 md:py-0 md:px-6">
 						<h1 className="text-4xl font-bold">Get in touch</h1>
@@ -113,7 +113,7 @@ const Header = () => {
 							<input
 								type="text"
 								placeholder="Leroy Jenkins"
-								className="block p-2 w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"
+								className="block p-2 w-full border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"
 							/>
 						</label>
 						<label className="block">
@@ -121,14 +121,14 @@ const Header = () => {
 							<input
 								type="email"
 								placeholder="Email"
-								className="block p-3 w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"
+								className="block p-3 border w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"
 							/>
 						</label>
 						<label className="block">
 							<span className="mb-1">Message</span>
 							<textarea
 								rows="3"
-								className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"
+								className="block border w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"
 							></textarea>
 						</label>
 						<button

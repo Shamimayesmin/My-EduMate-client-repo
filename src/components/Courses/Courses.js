@@ -8,12 +8,12 @@ const Courses = () => {
 	// console.log(courseCategory)
 	return (
 		<>
-			<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between sm:w-full bg-sky-900">
+			<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between sm:w-full bg-base-100">
 				<div class="lg:w-1/3 sm:w-full bg-sky-900 text-white rounded-lg">
 					<Sidebar></Sidebar>
 				</div>
 				<div class="lg:w-2/3 justify-center mx-auto rounded-lg">
-					<h3 className="text-2xl font-mono p-4 text-white">
+					<h3 className="text-2xl font-mono p-4">
 						Our Popular Courses: {courseCategory.length}
 					</h3>
 

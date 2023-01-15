@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Navbar = () => {
-	const [theme, setTheme] = useState("light-theme");
+	const [dark, setDark] = useState(false);
+	
 	const { user, logOut } = useContext(AuthContext);
 
 	const handleLogOut = () => {
@@ -13,25 +14,30 @@ const Navbar = () => {
 		.catch((error) => console.error(error));
 	};
 
-	// toggle theme
-	const toggleTheme = () =>{
-		// console.log('click')
-		if(theme === "dark-theme"){
-			setTheme('light-theme')
-		}
-		else{
-			setTheme("dark-theme")
-		}
-	}
+	// dark and light generate
+	const handleDark = () => {
+		setDark(!dark);
+		localStorage.setItem("dark-mood", !dark);
+	};
 
-	useEffect( () =>{
-		document.body.className = theme;
-	},[theme])
+	useEffect(() => {
+		const localDark = JSON.parse(localStorage.getItem("dark-mood"));
+		console.log(localDark);
+		setDark(localDark);
+	}, []);
+
+	useEffect(() => {
+		if (dark) {
+			document.querySelector("html").setAttribute("data-theme", "dark");
+		} else {
+			document.querySelector("html").setAttribute("data-theme", "mytheme");
+		}
+	}, [dark]);
 
 	return (
 		<div>
 
-			<header className="p-4 bg-light shadow-lg dark:bg-gray-800 dark:text-gray-100">
+			<header className="p-4 bg-base shadow-lg dark:bg-gray-800 dark:text-white">
 				<div className="container flex justify-between h-16 mx-auto">
 					<Link
 						rel="noopener noreferrer"
@@ -59,7 +65,7 @@ const Navbar = () => {
 							<Link
 								rel="noopener noreferrer"
 								to="/home"
-								className="flex items-center hover:bg-teal-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
+								className="flex items-center hover:text-white hover:bg-fuchsia-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
 							>
 								Home
 							</Link>
@@ -68,7 +74,7 @@ const Navbar = () => {
 							<Link
 								rel="noopener noreferrer"
 								to="/course"
-								className="flex items-center hover:bg-teal-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
+								className="flex items-center hover:text-white hover:bg-fuchsia-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
 							>
 								Courses
 							</Link>
@@ -77,7 +83,7 @@ const Navbar = () => {
 							<Link
 								rel="noopener noreferrer"
 								to="/faq"
-								className="flex items-center hover:bg-teal-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400"
+								className="flex items-center hover:text-white hover:bg-fuchsia-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400"
 							>
 								FAQ
 							</Link>
@@ -86,7 +92,7 @@ const Navbar = () => {
 							<Link
 								rel="noopener noreferrer"
 								to="/blog"
-								className="flex items-center hover:bg-teal-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
+								className="flex items-center hover:text-white hover:bg-fuchsia-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
 							>
 								Blog
 							</Link>
@@ -96,7 +102,7 @@ const Navbar = () => {
 						<>
 							{user?.uid ? (
 								<>
-									<button className="hover:bg-teal-400 rounded-r-lg" onClick={handleLogOut} variant="light">
+									<button className="hover:text-white hover:bg-fuchsia-400 rounded-r-lg" onClick={handleLogOut} variant="light">
 										Log Out
 									</button>
 								</>
@@ -106,7 +112,7 @@ const Navbar = () => {
 										<Link
 											rel="noopener noreferrer"
 											to="/register"
-											className="flex items-center hover:bg-teal-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
+											className="flex items-center hover:text-white hover:bg-fuchsia-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
 										>
 											Register
 										</Link>
@@ -115,7 +121,7 @@ const Navbar = () => {
 										<Link
 											rel="noopener noreferrer"
 											to="/login"
-											className="flex items-center hover:bg-teal-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
+											className="flex items-center hover:text-white hover:bg-fuchsia-400 rounded-lg px-4 -mb-1 border-b-2 dark:border-transparent"
 										>
 											Login
 										</Link>
@@ -144,7 +150,7 @@ const Navbar = () => {
 					
 						<label className="swap swap-rotate">
 						{/* <!-- this hidden checkbox controls the state --> */}
-						<input onClick={() =>toggleTheme()} type="checkbox" />
+						<input onClick={handleDark} type="checkbox" />
 
 						<svg
 							className="swap-on fill-current w-10 h-10"

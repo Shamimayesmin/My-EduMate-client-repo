@@ -46,7 +46,7 @@ const CourseDetails = () => {
 					<h2 className="card-title">{title}</h2>
 					<span>
 						<Pdf targetRef={ref} filename="code-example.pdf">
-							{({ toPdf }) => <button className="border hover:bg-red-300 bg-slate-200 rounded-lg p-2" onClick={toPdf}>Pdf <FaDownload  className="justify-center mx-auto"/></button>}
+							{({ toPdf }) => <button className="border bg-base-100 hover:bg-red-400  rounded-lg p-2" onClick={toPdf}>Pdf <FaDownload  className="justify-center mx-auto"/></button>}
 						</Pdf>
 					</span>
 					

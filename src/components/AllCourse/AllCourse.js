@@ -21,7 +21,7 @@ const AllCourse = ({item}) => {
 					<p>
                         {
                             description.length > 200?
-                            <>{description.slice(0 ,250) + '...'}<Link className="text-slate-800 font-bold" to={`/courses/${_id}`}>Read More</Link></>
+                            <>{description.slice(0 ,250) + '...'}<Link className=" font-bold" to={`/courses/${_id}`}>Read More</Link></>
                             :
                             <>{description}</>
                         }
